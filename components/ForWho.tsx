@@ -48,7 +48,12 @@ export default function ForWho() {
               </div>
             </div>
 
-            {/* Solicitar Adesão button hidden per request */}
+            <a
+              href="https://nexusone.makagui.co.mz"
+              className="inline-block mt-10 border border-[rgba(201,168,76,.3)] text-gold px-8 py-4 uppercase tracking-wider font-medium text-xs"
+            >
+              Solicitar Adesão
+            </a>
           </div>
         </div>
       </div>

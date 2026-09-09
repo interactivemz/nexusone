@@ -14,7 +14,7 @@ const items = [
     desc: "12 palestras exclusivas com convidados de referência do mercado nacional e internacional.",
   },
   {
-    title: "Nexus Showcase",
+    title: "Nexus Xpedition",
     desc: "Visitas técnicas a empresas de referência — aprendizagem directa com quem já chegou lá.",
   },
   {
@@ -22,7 +22,7 @@ const items = [
     desc: "Análise profunda para mapear os principais momentos e lacunas da sua trajectória.",
   },
   {
-    title: "Podcast Nexus One",
+    title: "Nexus One Cast",
     desc: "Participação no podcast do Nexus — a sua voz e visão dentro do ecossistema.",
   },
 ];

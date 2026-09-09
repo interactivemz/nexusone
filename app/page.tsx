@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import NavClient from "../components/NavClient";
 import RevealClient from "../components/RevealClient";
 import BenefitsGrid from "../components/BenefitsGrid";
@@ -31,9 +32,14 @@ export default function Page() {
             Clube Exclusivo de Empreendedores · Moçambique
           </p>
           <h1 className="font-wordmark text-white uppercase leading-none mb-0 text-[clamp(52px,9vw,110px)] opacity-0 reveal">
-            Nexus
-            <br />
-            <span className="text-gold">One</span>
+            <Image
+              src="/logo nexus one.png"
+              alt="Nexus One"
+              width={2048}
+              height={768}
+              className="h-auto w-[min(90vw,720px)]"
+              priority
+            />
           </h1>
           <div className="h-16 w-px bg-gradient-to-b from-transparent via-[rgba(201,168,76,1)] to-transparent my-8 opacity-0 reveal"></div>
           <p className="max-w-xl text-[clamp(14px,2.2vw,19px)] text-[--off-white] font-[300] leading-[1.65] mb-12 opacity-0 reveal">
@@ -42,7 +48,7 @@ export default function Page() {
           </p>
           <div className="flex gap-4 flex-wrap justify-center opacity-0 reveal">
             <a
-              href="#sobre"
+              href="https://nexusone.makagui.co.mz"
               className="border border-[rgba(201,168,76,.3)] text-gold px-8 py-4 uppercase tracking-wider font-medium text-xs bp600:w-full bp600:text-center"
             >
               Conhecer o Clube
@@ -137,6 +143,12 @@ export default function Page() {
             Junte-se à comunidade de líderes que estão a construir o futuro do
             empreendedorismo em Moçambique.
           </p>
+          <a
+            href="https://nexusone.makagui.co.mz"
+            className="bg-navy text-gold px-8 py-4 uppercase tracking-wider font-semibold"
+          >
+            Solicitar Adesão
+          </a>
         </div>
 
         {/* FOOTER */}
