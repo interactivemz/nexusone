@@ -1,0 +1,174 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NOTE: The original project includes an embedded 'Cottox' font via large base64 blobs.
+   The fonts will be extracted to /public/fonts by `scripts/extract-fonts.js`.
+   After running `npm run extract-fonts` the local @font-face rules below will load the fonts.
+*/
+
+@font-face {
+  font-family: "Cottox";
+  src: url("/fonts/Cottox-300.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cottox";
+  src: url("/fonts/Cottox-400.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cottox";
+  src: url("/fonts/Cottox-600.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cottox";
+  src: url("/fonts/Cottox-700.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --navy: #0b1524;
+  --navy-mid: #111e33;
+  --navy-card: #0f1c2e;
+  --navy-border: #1c2e45;
+  --gold: #c9a84c;
+  --gold-light: #e5c97a;
+  --gold-pale: rgba(201, 168, 76, 0.12);
+  --gold-line: rgba(201, 168, 76, 0.3);
+  --white: #ffffff;
+  --off-white: #f4f1eb;
+  --muted: #6b7e96;
+  --text: #b8c8d8;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-navy text-text font-inter leading-relaxed overflow-x-hidden;
+}
+
+/* Noise overlay and hero decorations kept as small custom CSS */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.4;
+}
+
+/* small helpers */
+.container {
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+section {
+  padding: 100px 0;
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  section {
+    padding: 72px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  section {
+    padding: 48px 0;
+  }
+}
+.gold {
+  color: var(--gold);
+}
+
+/* utility for reveal; actual intersection logic is in client component */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes scrollPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  opacity: 0;
+  animation: fadeIn 1s 1.4s forwards;
+}
+.scroll-hint-line {
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, var(--gold-line), transparent);
+  animation: scrollPulse 2s 1.4s infinite;
+}

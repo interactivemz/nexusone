@@ -1,0 +1,13 @@
+// Ambient type declarations for static-asset & style side-effect imports.
+// This file MUST stay a global script (no top-level import/export) so the
+// wildcard "declare module" patterns are applied globally by the TS server.
+declare module "*.css";
+declare module "*.scss";
+declare module "*.sass";
+declare module "*.less";
+declare module "*.png";
+declare module "*.jpg";
+declare module "*.jpeg";
+declare module "*.gif";
+declare module "*.svg";
+declare module "*.webp";
